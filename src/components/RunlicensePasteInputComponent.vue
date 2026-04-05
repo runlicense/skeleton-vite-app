@@ -28,17 +28,21 @@ async function handleActivate() {
 </script>
 
 <template>
-  <section id="center">
-    <h1>__PRODUCT_NAME__</h1>
-    <p class="status">{{ status }}</p>
+  <section class="max-w-xl mx-auto text-center">
+    <p class="text-gray-500 dark:text-gray-400 italic mb-4">{{ status }}</p>
 
-    <div v-if="isReady" class="license-form">
+    <div v-if="isReady" class="flex flex-col gap-3 mb-6">
       <textarea
         v-model="licenseString"
         placeholder="Paste your license JSON here..."
         rows="6"
+        class="w-full px-3 py-3 border border-gray-300 dark:border-gray-600 rounded-lg font-mono text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 resize-y focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
       ></textarea>
-      <button @click="handleActivate" :disabled="!licenseString">
+      <button
+        @click="handleActivate"
+        :disabled="!licenseString"
+        class="px-6 py-3 bg-accent text-white font-medium rounded-lg transition-all duration-200 hover:brightness-110 hover:shadow-md disabled:bg-gray-300 dark:disabled:bg-gray-600 disabled:cursor-not-allowed disabled:shadow-none"
+      >
         Activate License
       </button>
     </div>
@@ -46,58 +50,3 @@ async function handleActivate() {
     <div id="__PRODUCT_NAME__-app"></div>
   </section>
 </template>
-
-<style scoped>
-#center {
-  max-width: 640px;
-  margin: 2rem auto;
-  text-align: center;
-  font-family: system-ui, sans-serif;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.status {
-  color: #888;
-  margin-bottom: 1.5rem;
-}
-
-.license-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-family: monospace;
-  font-size: 0.85rem;
-  resize: vertical;
-}
-
-button {
-  padding: 0.75rem 1.5rem;
-  background: #4f46e5;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #4338ca;
-}
-
-button:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-</style>

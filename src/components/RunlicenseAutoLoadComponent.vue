@@ -21,50 +21,14 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section class="auto-load-section">
-    <h2>Auto-load License</h2>
-    <p class="description">
+  <section class="max-w-xl mx-auto text-center p-6 border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800/50">
+    <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">Auto-load License</h2>
+    <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">
       This component loads the license automatically from
-      <code>public/__NAMESPACE__/license.json</code>.
+      <code class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-1.5 py-0.5 rounded text-xs font-mono">public/__NAMESPACE__/license.json</code>.
       Place your license file there and the WASM SDK will find it.
     </p>
-    <p class="status">{{ status }}</p>
+    <p class="text-gray-500 dark:text-gray-400 italic">{{ status }}</p>
     <div id="__PRODUCT_NAME__-auto-app"></div>
   </section>
 </template>
-
-<style scoped>
-.auto-load-section {
-  max-width: 640px;
-  margin: 2rem auto;
-  text-align: center;
-  font-family: system-ui, sans-serif;
-  padding: 1.5rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  background: #f9fafb;
-}
-
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.description {
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.description code {
-  background: #e5e7eb;
-  padding: 0.15rem 0.4rem;
-  border-radius: 3px;
-  font-size: 0.85rem;
-}
-
-.status {
-  color: #888;
-  font-style: italic;
-}
-</style>

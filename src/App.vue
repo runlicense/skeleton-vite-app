@@ -7,101 +7,70 @@ const showingMethod = ref(1);
 </script>
 
 <template>
-  <div class="app">
-    <header>
-      <h1>__PRODUCT_NAME__</h1>
-      <p class="subtitle">RunLicense Demo App</p>
+  <div class="max-w-3xl mx-auto px-4 py-8 font-sans min-h-screen">
+    <header class="text-center mb-10">
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100">__PRODUCT_NAME__</h1>
+      <p class="text-gray-500 dark:text-gray-400 text-lg mt-2">RunLicense Demo App</p>
     </header>
 
-      <div>
-          Options:
-
-          <div>
-              <button @click="showingMethod = 1">
-                  Paste License
-              </button>
-          </div>
-         <div>
-             <button @click="showingMethod = 2">
-                 Reference License File
-             </button>
-         </div>
-
+    <div class="bg-white dark:bg-gray-800/50 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-8">
+      <p class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-4">Activation Method</p>
+      <div class="flex gap-3">
+        <button
+          @click="showingMethod = 1"
+          :class="[
+            'flex-1 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200',
+            showingMethod === 1
+              ? 'bg-accent text-white shadow-md'
+              : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+          ]"
+        >
+          Paste License
+        </button>
+        <button
+          @click="showingMethod = 2"
+          :class="[
+            'flex-1 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200',
+            showingMethod === 2
+              ? 'bg-accent text-white shadow-md'
+              : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+          ]"
+        >
+          Reference License File
+        </button>
       </div>
+    </div>
 
-    <div class="examples">
-      <div class="example" v-if="showingMethod === 1">
-        <h3>Method 1: Paste License</h3>
-        <p class="method-description">Manually paste a license JSON string to activate.</p>
+    <div>
+      <div v-if="showingMethod === 1">
+        <h3 class="text-center text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1">Method 1: Paste License</h3>
+        <p class="text-center text-gray-500 dark:text-gray-400 text-sm mb-4">Manually paste a license JSON string to activate.</p>
         <RunlicensePasteInputComponent />
       </div>
 
-      <hr />
-
-      <div class="example" v-if="showingMethod === 2">
-        <h3>Method 2: Auto-load License</h3>
-        <p class="method-description">
+      <div v-if="showingMethod === 2">
+        <h3 class="text-center text-lg font-semibold text-gray-800 dark:text-gray-200 mb-1">Method 2: Auto-load License</h3>
+        <p class="text-center text-gray-500 dark:text-gray-400 text-sm mb-4">
           License is loaded automatically from
-          <code>public/__NAMESPACE__/license.json</code>.
+          <code class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-1.5 py-0.5 rounded text-xs font-mono">public/__NAMESPACE__/license.json</code>.
         </p>
         <RunlicenseAutoLoadComponent />
       </div>
     </div>
+
+    <div class="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700 text-center">
+      <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Need a license for your project?</p>
+      <a
+        href="https://runlicense.com/licenses/new"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-medium rounded-lg shadow-md hover:shadow-lg hover:brightness-110 transition-all duration-200"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+        Generate New License
+      </a>
+    </div>
   </div>
 </template>
-
-<style scoped>
-.app {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  font-family: system-ui, sans-serif;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.25rem;
-}
-
-.subtitle {
-  color: #888;
-  font-size: 1.1rem;
-}
-
-.examples {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.example h3 {
-  text-align: center;
-  font-size: 1.2rem;
-  margin-bottom: 0.25rem;
-}
-
-.method-description {
-  text-align: center;
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.method-description code {
-  background: #e5e7eb;
-  padding: 0.15rem 0.4rem;
-  border-radius: 3px;
-  font-size: 0.85rem;
-}
-
-hr {
-  border: none;
-  border-top: 1px solid #e5e7eb;
-  margin: 1rem 0;
-}
-</style>
