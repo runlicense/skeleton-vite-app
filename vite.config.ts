@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite'
+import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue()],
-  optimizeDeps: {
-    exclude: ['__PRODUCT_NAME__'],
-  },
+    plugins: [vue()],
+    optimizeDeps: {
+        exclude: ['__PRODUCT_NAME__'],
+    },
     server: {
         fs: {
             allow: ['..'],
