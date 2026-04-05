@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-accent: #aa3bff;
-  --color-accent-light: rgba(170, 59, 255, 0.1);
-  --color-accent-border: rgba(170, 59, 255, 0.5);
+  --color-accent: #334155;
+  --color-accent-light: rgba(51, 65, 85, 0.06);
+  --color-accent-border: rgba(51, 65, 85, 0.2);
 }
 
 @variant dark {
-  --color-accent: #c084fc;
-  --color-accent-light: rgba(192, 132, 252, 0.15);
-  --color-accent-border: rgba(192, 132, 252, 0.5);
+  --color-accent: #94a3b8;
+  --color-accent-light: rgba(148, 163, 184, 0.1);
+  --color-accent-border: rgba(148, 163, 184, 0.3);
 }
