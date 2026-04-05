@@ -7,4 +7,9 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['__PRODUCT_NAME__'],
   },
+    server: {
+        fs: {
+            allow: ['..'],
+        },
+    },
 })
