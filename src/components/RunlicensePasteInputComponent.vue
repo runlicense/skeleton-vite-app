@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { activate } from '__PRODUCT_NAME__'
+import { activateFromLicenseString } from '__PRODUCT_NAME__'
 
 const status = ref('Initializing...')
 const licenseString = ref('')
@@ -19,8 +19,8 @@ onMounted(async () => {
 
 async function handleActivate() {
   try {
-    activate('__PRODUCT_NAME__-app', licenseString.value)
-    status.value = 'License activated!'
+    activateFromLicenseString(licenseString.value)
+    status.value = 'License check initiated — open the browser console to see the result.'
   } catch (e: any) {
     status.value = `Activation failed: ${e.message}`
   }

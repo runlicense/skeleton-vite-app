@@ -11,6 +11,9 @@ const showingMethod = ref(1);
     <header class="text-center mb-10">
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-100">__PRODUCT_NAME__</h1>
       <p class="text-gray-500 dark:text-gray-400 text-lg mt-2">RunLicense Demo App</p>
+      <p class="mt-3 px-4 py-2 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-sm rounded-lg border border-amber-200 dark:border-amber-700 inline-block">
+        Open your browser console <kbd class="px-1.5 py-0.5 bg-amber-100 dark:bg-amber-800 rounded text-xs font-mono">F12</kbd> to see license validation output.
+      </p>
     </header>
 
     <div class="bg-white dark:bg-gray-800/50 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-8">

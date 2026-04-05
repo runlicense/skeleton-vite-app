@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { activate } from '__PRODUCT_NAME__'
+import { activateFromLicenseFile } from '__PRODUCT_NAME__'
 
 const status = ref('Initializing...')
 
@@ -10,10 +10,9 @@ onMounted(async () => {
     await module.default()
     status.value = 'WASM module loaded. Attempting auto-activation...'
 
-    // The WASM SDK will look for the license at __NAMESPACE__/license.json
-    // relative to the public directory. Place your license file there.
-    activate('__PRODUCT_NAME__-auto-app')
-    status.value = 'License activated automatically from __NAMESPACE__/license.json'
+    // The WASM SDK will fetch the license from __NAMESPACE__/license.json automatically.
+    activateFromLicenseFile()
+    status.value = 'License check initiated — open the browser console to see the result.'
   } catch (e: any) {
     status.value = `Auto-activation failed: ${e.message}`
   }
