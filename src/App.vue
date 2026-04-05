@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import RunlicensePasteInputComponent from './components/RunlicensePasteInputComponent.vue'
 import RunlicenseAutoLoadComponent from './components/RunlicenseAutoLoadComponent.vue'
+import {ref} from "vue";
+
+const showingMethod = ref(1);
 </script>
 
 <template>
@@ -10,8 +13,24 @@ import RunlicenseAutoLoadComponent from './components/RunlicenseAutoLoadComponen
       <p class="subtitle">RunLicense Demo App</p>
     </header>
 
+      <div>
+          Options:
+
+          <div>
+              <button @click="showingMethod = 1">
+                  Paste License
+              </button>
+          </div>
+         <div>
+             <button @click="showingMethod = 2">
+                 Reference License File
+             </button>
+         </div>
+
+      </div>
+
     <div class="examples">
-      <div class="example">
+      <div class="example" v-if="showingMethod === 1">
         <h3>Method 1: Paste License</h3>
         <p class="method-description">Manually paste a license JSON string to activate.</p>
         <RunlicensePasteInputComponent />
@@ -19,7 +38,7 @@ import RunlicenseAutoLoadComponent from './components/RunlicenseAutoLoadComponen
 
       <hr />
 
-      <div class="example">
+      <div class="example" v-if="showingMethod === 2">
         <h3>Method 2: Auto-load License</h3>
         <p class="method-description">
           License is loaded automatically from
